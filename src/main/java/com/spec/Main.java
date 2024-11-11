@@ -9,14 +9,22 @@ public class Main {
 
         Expresso expresso = Expresso.init();
 
-        expresso.get("/custompath", (req, res) -> {
+        expresso.get("/home", (req, res) -> {
             try {
-                res.getWriter().println("Reponse from customPath");
+                res.getWriter().println("Welcome to home page!!!");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         });
 
-        expresso.listen(8000);
+        expresso.get("/about", (req, res) -> {
+            try {
+                res.getWriter().println("Information about the app");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        expresso.listen(5757);
     }
 }
