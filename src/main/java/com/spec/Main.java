@@ -25,6 +25,30 @@ public class Main {
             }
         });
 
+        expresso.post("/post", (req, res) -> {
+            try {
+                res.getWriter().println("in post path");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        expresso.put("/put", (req, res) -> {
+            try {
+                res.getWriter().println("in put path");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        expresso.delete("/delete", (req, res) -> {
+            try {
+                res.getWriter().println("in delete path");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
         expresso.listen(5757);
     }
 }
