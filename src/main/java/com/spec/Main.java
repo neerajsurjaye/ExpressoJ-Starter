@@ -10,43 +10,23 @@ public class Main {
         Expresso expresso = Expresso.init();
 
         expresso.get("/home", (req, res) -> {
-            try {
-                res.getWriter().println("Welcome to home page!!!");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            res.setResponse("In home path");
         });
 
         expresso.get("/about", (req, res) -> {
-            try {
-                res.getWriter().println("Information about the app");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            res.setResponse("in about section");
         });
 
         expresso.post("/post", (req, res) -> {
-            try {
-                res.getWriter().println("in post path");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            res.setResponse("Data posted");
         });
 
         expresso.put("/put", (req, res) -> {
-            try {
-                res.getWriter().println("in put path");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            res.setResponse("In put path");
         });
 
         expresso.delete("/delete", (req, res) -> {
-            try {
-                res.getWriter().println("in delete path");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            res.setResponse("deleting data");
         });
 
         expresso.listen(5757);
