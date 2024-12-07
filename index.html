@@ -6,6 +6,7 @@
         <title>ExpressoJ</title>
         <meta name="description" content="TODO: give info about the website" />
         <link rel="stylesheet" href="./css/style.css" />
+        <link rel="stylesheet" href="./css/prism.css">
     </head>
     <body>
         <!-- Navigation of website -->
@@ -13,12 +14,13 @@
             <h2 class="header-title">ExpressoJ</h2>
 
             <ul class="flex header-nav-buttons">
+                
                 <li>
-                    <a class="btn no-link" href="#getexpresso">Get Expresso</a>
+                    <a class="btn no-link" href="#getstarted">Get Started</a>
                 </li>
 
                 <li>
-                    <a class="btn no-link" href="#getstarted">Get Started</a>
+                    <a class="btn no-link" href="#getexpresso">Get Expresso</a>
                 </li>
 
                 <li>
@@ -42,21 +44,73 @@
         <!-- demo code section -->
         <section id="getstarted" class="section vh-1 border-bt-black">
             <h2 class="section-title">SHOW ME THE CODE</h2>
-            <div class="code"></div>
+            <div class="code">
+
+                <pre>
+                    <code class="language-java">
+
+public static void main(String[] args) {
+    /* Initialize expresso */
+    Expresso expresso = Expresso.init();
+    /*
+    * .use() executes on all requests, regardless of the HTTP method.
+    * A path can also be specified.
+    */
+    expresso.use((req, res, next) -> {
+        res.writeResponse("Executes on all requests");
+        next.next();
+    });
+    /* Supports [get, post, put, delete] http methods */
+    expresso.get("/home", (req, res, next) -> {
+        res.writeResponse("get /home");
+        next.next();
+    });
+   
+    /* Set a listening address */
+    expresso.listen(5757);
+    /* Start the app */
+    expresso.start();
+}</code></pre>
+
+            </div>
         </section>
 
         <!-- features section -->
         <section class="section vh-1 border-bt-black"> 
-            <h2>Features</h2>
+            <h2 class="section-title">Features</h2>
             <div></div>
         </section>
 
         <!-- Get expresso section -->
         <section id="getexpresso" class="section vh-1 border-bt-black">
-            <h2>Get expresso section</h2>
-            <div></div>
+            <h2 class="section-title">Get expresso section</h2>
+            <div>
+                <pre>
+                    <code class="language-xml">
+&lt;groupId&gt;com.spec.web&lt;/groupId&gt;
+&lt;artifactId&gt;expressoj&lt;/artifactId&gt;
+&lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+                    </code>
+                </pre>
+            </div>
         </section>
 
-        <footer></footer>
+        <footer class="footer">
+            <div class="flex w-100">
+                <div class="footer-title">
+                    EXPRESSO<span class="footer-red">J</span>
+                </div>
+                <div>
+                    <a class="no-link mr-8 footer-link" target="_blank" href="https://github.com/neerajsurjaye/ExpressoJ">
+                        <img class="rem-1" src="./assets/github-mark-white.png" alt="">
+                        Contibute on github
+                    </a>
+                </div>
+            </div>
+            
+
+        </footer>
     </body>
+
+    <script src="./js/prism.js"></script>
 </html>

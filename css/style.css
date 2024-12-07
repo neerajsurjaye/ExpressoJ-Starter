@@ -34,7 +34,6 @@ h2 {
 
 .no-link {
     text-decoration: none;
-    color: black;
 }
 
 .border-bt-black {
@@ -63,6 +62,10 @@ h2 {
 
 .section-title {
     margin-top: 64px;
+}
+
+.w-100 {
+    width: 100%;
 }
 
 /* element specific styles */
@@ -107,4 +110,31 @@ h2 {
     font-size: 8rem;
     margin-top: 20vh;
     margin-bottom: 10vh;
+}
+
+.footer {
+    display: flex;
+    min-height: 75vh;
+    background-color: black;
+    color: white;
+}
+
+.footer-title {
+    color: #222;
+    font-size: 14rem;
+    width: 50%;
+    word-wrap: break-word;
+    font-weight: 900;
+}
+
+.footer-red {
+    color: #400;
+}
+
+.footer-link {
+    color: white;
+}
+
+.footer-link:visited {
+    color: white;
 }
