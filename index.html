@@ -5,31 +5,58 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>ExpressoJ</title>
         <meta name="description" content="TODO: give info about the website" />
+        <link rel="stylesheet" href="./css/style.css" />
     </head>
     <body>
         <!-- Navigation of website -->
-        <nav>
-            <h2>ExpressoJ</h2>
+        <nav class="flex header border-bt-black ">
+            <h2 class="header-title">ExpressoJ</h2>
 
-            <ul>
-                <li>Get: Expresso</li>
-                <li>Get: Started</li>
-                <li>Java doc</li>
+            <ul class="flex header-nav-buttons">
+                <li>
+                    <a class="btn no-link" href="#getexpresso">Get Expresso</a>
+                </li>
+
+                <li>
+                    <a class="btn no-link" href="#getstarted">Get Started</a>
+                </li>
+
+                <li>
+                    <a class="btn no-link" href="">Java doc</a>
+                </li>
             </ul>
         </nav>
 
-        <main>
-            <h1 class="title">ExpressoJ</h1>
-            <button>Get ExpressoJ</button>
+        <!-- hero section -->
+        <main class="hero border-bt-black">
+            <h1 class="hero-title">ExpressoJ</h1>
+            <a class="btn no-link mr-8" href="#getexpresso">
+                Get ExpressoJ
+            </button>
+            <a class="no-link mr-8" href="https://github.com/neerajsurjaye/ExpressoJ">
+                <img class="rem-1" src="./assets/github-mark.png" alt="">
+                Contibute on github
+            </a>
         </main>
-        <section>
+
+        <!-- demo code section -->
+        <section id="getstarted">
             <h2>SHOW ME THE CODE</h2>
             <div class="code"></div>
         </section>
+
+        <!-- features section -->
         <section>
-            <h2>HOW TO USE</h2>
+            <h2>Features</h2>
             <div></div>
         </section>
+
+        <!-- Get expresso section -->
+        <section id="getexpresso">
+            <h2>Get expresso section</h2>
+            <div></div>
+        </section>
+
         <footer></footer>
     </body>
 </html>
