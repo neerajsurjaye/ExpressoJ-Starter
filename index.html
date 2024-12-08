@@ -6,15 +6,15 @@
         <title>ExpressoJ</title>
         <meta name="description" content="TODO: give info about the website" />
         <link rel="stylesheet" href="./css/style.css" />
-        <link rel="stylesheet" href="./css/prism.css">
+        <link rel="stylesheet" href="./css/prism.css" />
+        <link rel="stylesheet" href="./css/Effects.css" />
     </head>
     <body>
         <!-- Navigation of website -->
-        <nav class="flex header border-bt-black ">
+        <nav class="flex header border-bt-black">
             <h2 class="header-title">ExpressoJ</h2>
 
             <ul class="flex header-nav-buttons">
-                
                 <li>
                     <a class="btn no-link" href="#getstarted">Get Started</a>
                 </li>
@@ -31,21 +31,27 @@
 
         <!-- hero section -->
         <main class="hero border-bt-black">
-            <h1 class="hero-title">ExpressoJ</h1>
-            <a class="btn no-link mr-8" href="#getexpresso">
-                Get ExpressoJ
-            </button>
-            <a class="no-link mr-8" target="_blank" href="https://github.com/neerajsurjaye/ExpressoJ">
-                <img class="rem-1" src="./assets/github-mark.png" alt="">
-                Contibute on github
-            </a>
+            <div class="hero-background" id="scrl-back"></div>
+            <div class="hero-foreground">
+                <h1 class="hero-title">ExpressoJ</h1>
+                <a class="btn no-link mr-8 pe-auto" href="#getexpresso">
+                    Get ExpressoJ
+                </a>
+                <a
+                    class="no-link mr-8 pe-auto"
+                    target="_blank"
+                    href="https://github.com/neerajsurjaye/ExpressoJ"
+                >
+                    <img class="rem-1" src="./assets/github-mark.png" alt="" />
+                    Contibute on github
+                </a>
+            </div>
         </main>
 
         <!-- demo code section -->
         <section id="getstarted" class="section vh-1 border-bt-black">
             <h2 class="section-title">SHOW ME THE CODE</h2>
             <div class="code">
-
                 <pre>
                     <code class="language-java">
 
@@ -71,14 +77,7 @@ public static void main(String[] args) {
     /* Start the app */
     expresso.start();
 }</code></pre>
-
             </div>
-        </section>
-
-        <!-- features section -->
-        <section class="section vh-1 border-bt-black"> 
-            <h2 class="section-title">Features</h2>
-            <div></div>
         </section>
 
         <!-- Get expresso section -->
@@ -101,16 +100,23 @@ public static void main(String[] args) {
                     EXPRESSO<span class="footer-red">J</span>
                 </div>
                 <div>
-                    <a class="no-link mr-8 footer-link" target="_blank" href="https://github.com/neerajsurjaye/ExpressoJ">
-                        <img class="rem-1" src="./assets/github-mark-white.png" alt="">
+                    <a
+                        class="no-link mr-8 footer-link"
+                        target="_blank"
+                        href="https://github.com/neerajsurjaye/ExpressoJ"
+                    >
+                        <img
+                            class="rem-1"
+                            src="./assets/github-mark-white.png"
+                            alt=""
+                        />
                         Contibute on github
                     </a>
                 </div>
             </div>
-            
-
         </footer>
     </body>
 
     <script src="./js/prism.js"></script>
+    <script src="./js/index.js" type="module"></script>
 </html>
