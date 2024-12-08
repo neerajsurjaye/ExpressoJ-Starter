@@ -32,7 +32,7 @@ function createScrollingTextBackground(targetElement, textArray, speed) {
 
 function createRow() {
     let scrlAnimClasses = ["anim-scrl-row", "anim-scrl-row-reverse"];
-    let animDurations = ["45s", "60s", "120s"];
+    let animDurations = ["60s", "90s", "120s"];
 
     let rowElement = document.createElement("div");
     rowElement.classList.add("scrl-text-row");
