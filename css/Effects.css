@@ -1,7 +1,7 @@
 .effect-cont {
     height: 150%;
     flex-direction: column;
-    transform: rotate(-10deg) translateY(-20vh);
+    transform: rotate(-5.7deg) translateY(-20vh);
     /* filter: blur(1.5px); */
     /* border: 2px solid black; */
 }
