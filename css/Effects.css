@@ -38,7 +38,8 @@
 
     font-weight: 700;
 
-    transition: color 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    box-sizing: border-box;
 }
 
 .scrl-text-highlight-green:hover {

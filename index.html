@@ -20,7 +20,7 @@
                 </li>
 
                 <li>
-                    <a class="btn no-link" href="#getexpresso">Get Expresso</a>
+                    <a class="btn no-link" href="#getexpresso">How to use</a>
                 </li>
 
                 <li>
@@ -51,11 +51,14 @@
         <!-- demo code section -->
         <section id="getstarted" class="section vh-1 border-bt-black">
             <h2 class="section-title">SHOW ME THE CODE</h2>
-            <div class="code">
-                <pre>
-                    <code class="language-java">
-
-public static void main(String[] args) {
+            <div>
+                <p>
+                    Here's a sample application that uses the
+                    <code>.use()</code> method to intercept requests and handle
+                    <code>GET</code> requrest on <code>/hello</code> endpoint.
+                </p>
+                <div class="code">
+                    <pre><code class="language-java">public static void main(String[] args) {
     /* Initialize expresso */
     Expresso expresso = Expresso.init();
     /*
@@ -63,12 +66,12 @@ public static void main(String[] args) {
     * A path can also be specified.
     */
     expresso.use((req, res, next) -> {
-        res.writeResponse("Executes on all requests");
+        res.writeResponse("Request intercepted");
         next.next();
     });
     /* Supports [get, post, put, delete] http methods */
-    expresso.get("/home", (req, res, next) -> {
-        res.writeResponse("get /home");
+    expresso.get("/hello", (req, res, next) -> {
+        res.writeResponse("Hello world");
         next.next();
     });
    
@@ -77,20 +80,105 @@ public static void main(String[] args) {
     /* Start the app */
     expresso.start();
 }</code></pre>
+                </div>
             </div>
         </section>
 
         <!-- Get expresso section -->
         <section id="getexpresso" class="section vh-1 border-bt-black">
-            <h2 class="section-title">Get expresso section</h2>
+            <h2 class="section-title">GET EXPRESSOJ</h2>
             <div>
-                <pre>
-                    <code class="language-xml">
-&lt;groupId&gt;com.spec.web&lt;/groupId&gt;
-&lt;artifactId&gt;expressoj&lt;/artifactId&gt;
-&lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
-                    </code>
-                </pre>
+                <div id="get-expresso-doc">
+                    <h3>
+                        Follow the below steps to setup ExpressoJ on your local
+                        maven repo.
+                    </h3>
+
+                    <h4>
+                        1. Clone ExpressoJ github repo to your local system.
+                    </h4>
+                    <p>
+                        Github:
+                        <a
+                            href="https://github.com/neerajsurjaye/ExpressoJ"
+                            target="_blank"
+                            >ExpressoJ repo</a
+                        >
+                    </p>
+                    <pre><code class="language-bash">$ git clone https://github.com/neerajsurjaye/ExpressoJ.git</code></pre>
+                </div>
+
+                <h4>2. Cd into the project and change repository to main</h4>
+                <pre><code class="language-bash">$ cd ~/ExpressoJ
+$ git checkout main</code></pre>
+
+                <h4>3. Build the project</h4>
+                <pre><code class="language-shell">$ mvn clean install</code></pre>
+
+                <h4>4. Add the project as dependency in your project</h4>
+                <pre><code class="language-xml">&lt;dependencies&gt;
+    ...
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.spec.web&lt;/groupId&gt;
+        &lt;artifactId&gt;expressoj&lt;/artifactId&gt;
+        &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+    ...
+&lt;/dependencies&gt;</code></pre>
+
+                <h4>5. Update the following properties in pom.xml</h4>
+                <ol>
+                    <li>Change build type to jar.</li>
+                    <li>
+                        Use <strong>maven-shade-plugin</strong> to make it a
+                        uber jar.
+                    </li>
+                    <li>
+                        (optional) Use <strong>maven-jar-plugin</strong> to add
+                        a manifest to main class.
+                    </li>
+                </ol>
+                <pre><code class="language-xml">&lt;!-- Jar packaging required --&gt;
+&lt;packaging&gt;jar&lt;/packaging&gt;
+
+&lt;build&gt;
+    ...
+    &lt;plugins&gt;
+        &lt;!-- Maven shade plugin: Required to create uber(fat) 
+        JAR that includes all the dependencies --&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-shade-plugin&lt;/artifactId&gt;
+            &lt;version&gt;3.2.1&lt;/version&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;phase&gt;package&lt;/phase&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;shade&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+
+        &lt;!-- Maven jar plugin: Adds a manifest file specifying 
+        the main class. --&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-jar-plugin&lt;/artifactId&gt;
+            &lt;version&gt;3.2.0&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;archive&gt;
+                    &lt;manifest&gt;
+                        &lt;!-- Change this to fully qualified name of 
+                        your main class --&gt;
+                        &lt;mainClass&gt;com.spec.Main&lt;/mainClass&gt;
+                    &lt;/manifest&gt;
+                &lt;/archive&gt;
+            &lt;/configuration&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+    ...
+&lt;/build&gt;</code></pre>
             </div>
         </section>
 
