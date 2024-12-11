@@ -16,11 +16,11 @@
 
             <ul class="flex header-nav-buttons">
                 <li>
-                    <a class="btn no-link" href="#getstarted">Get Started</a>
+                    <a class="btn no-link" href="#getstarted">GET Started</a>
                 </li>
 
                 <li>
-                    <a class="btn no-link" href="#getexpresso">How to use</a>
+                    <a class="btn no-link" href="#getexpresso">USE ExpressoJ</a>
                 </li>
 
                 <li>
@@ -35,7 +35,7 @@
             <div class="hero-foreground">
                 <h1 class="hero-title">ExpressoJ</h1>
                 <a class="btn no-link mr-8 pe-auto" href="#getexpresso">
-                    Get ExpressoJ
+                    USE ExpressoJ
                 </a>
                 <a
                     class="no-link mr-8 pe-auto"
@@ -51,7 +51,7 @@
         <!-- demo code section -->
         <section id="getstarted" class="section vh-1 border-bt-black">
             <h2 class="section-title">SHOW ME THE CODE</h2>
-            <div>
+            <div class="section-body">
                 <p>
                     Here's a sample application that uses the
                     <code>.use()</code> method to intercept requests and handle
@@ -86,12 +86,12 @@
 
         <!-- Get expresso section -->
         <section id="getexpresso" class="section vh-1 border-bt-black">
-            <h2 class="section-title">GET EXPRESSOJ</h2>
-            <div>
+            <h2 class="section-title">USE EXPRESSOJ</h2>
+            <div class="section-body">
                 <div id="get-expresso-doc">
                     <h3>
                         Follow the below steps to setup ExpressoJ on your local
-                        maven repo.
+                        System.
                     </h3>
 
                     <h4>
@@ -115,7 +115,9 @@ $ git checkout main</code></pre>
                 <h4>3. Build the project</h4>
                 <pre><code class="language-shell">$ mvn clean install</code></pre>
 
-                <h4>4. Add the project as dependency in your project</h4>
+                <h4>
+                    4. Now add the ExpressoJ as dependency in your own project
+                </h4>
                 <pre><code class="language-xml">&lt;dependencies&gt;
     ...
     &lt;dependency&gt;
@@ -126,7 +128,10 @@ $ git checkout main</code></pre>
     ...
 &lt;/dependencies&gt;</code></pre>
 
-                <h4>5. Update the following properties in pom.xml</h4>
+                <h4>
+                    5. In your project update the following properties in
+                    pom.xml
+                </h4>
                 <ol>
                     <li>Change build type to jar.</li>
                     <li>
@@ -183,18 +188,18 @@ $ git checkout main</code></pre>
         </section>
 
         <footer class="footer">
-            <div class="flex w-100">
+            <div class="footer-body flex w-100">
                 <div class="footer-title">
                     EXPRESSO<span class="footer-red">J</span>
                 </div>
-                <div>
+                <div class="flex footer-right">
                     <a
                         class="no-link mr-8 footer-link"
                         target="_blank"
                         href="https://github.com/neerajsurjaye/ExpressoJ"
                     >
                         <img
-                            class="rem-1"
+                            class=""
                             src="./assets/github-mark-white.png"
                             alt=""
                         />
@@ -202,6 +207,7 @@ $ git checkout main</code></pre>
                     </a>
                 </div>
             </div>
+            <p id="copyright-info">© 2024 Neeraj Surjaye. MIT License</p>
         </footer>
     </body>
 
