@@ -68,6 +68,7 @@ h2 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 16px;
 }
 
 .vh-1 {
@@ -155,6 +156,10 @@ h2 {
     align-items: center;
     z-index: 2;
     pointer-events: none;
+}
+
+pre {
+    border-radius: 8px;
 }
 
 /* footer */
