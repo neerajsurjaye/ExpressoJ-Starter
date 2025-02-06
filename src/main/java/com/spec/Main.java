@@ -1,8 +1,7 @@
 package com.spec;
 
-import java.io.IOException;
-
 import com.spec.web.expresso.Expresso;
+import com.spec.web.expresso.router.PathRouter;
 
 public class Main {
     public static void main(String[] args) {
@@ -19,11 +18,10 @@ public class Main {
             res.writeResponse("In home path");
         });
 
-        expresso.get("/home", (req, res, ctx) -> {
-            res.writeResponse("In home path");
+        expresso.delete("/delete", (req, res) -> {
+            res.setResponse("deleting data");
         });
 
         expresso.listen(5757);
-        expresso.start();
     }
 }
