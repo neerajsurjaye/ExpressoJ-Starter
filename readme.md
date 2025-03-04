@@ -1,6 +1,6 @@
 # ExpressoJ-Starter
 
-> This project servers as a starter for ExpressoJ
+> The following serves as a demo project for ExpressJ.
 
 ## To get started
 
