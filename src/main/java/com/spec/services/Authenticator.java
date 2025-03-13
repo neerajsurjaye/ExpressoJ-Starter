@@ -1,13 +1,12 @@
-package com.spec.controllers;
+package com.spec.services;
 
 import com.spec.web.expresso.message.HttpRequest;
 import com.spec.web.expresso.message.HttpResponse;
 import com.spec.web.expresso.middleware.Middleware;
 import com.spec.web.expresso.middleware.MiddlewareContext;
-
 import jakarta.servlet.http.Cookie;
 
-public class Auth implements Middleware {
+public class Authenticator implements Middleware {
 
     @Override
     public void execute(HttpRequest req, HttpResponse res, MiddlewareContext ctx) {

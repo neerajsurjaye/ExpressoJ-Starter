@@ -1,11 +1,12 @@
 package com.spec;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.Reader;
 
-import com.spec.controllers.Auth;
+import com.spec.controllers.AuthenticationController;
+import com.spec.controllers.NotesRestController;
+import com.spec.controllers.NotesController;
 import com.spec.web.expresso.Expresso;
+import com.spec.web.expresso.middleware.standard.StaticResourceServer;
 
 /**
  * The following class start the ExpressoJ server.
@@ -14,25 +15,13 @@ public class Application {
     public static void main(String[] args) {
         Expresso app = Expresso.init();
 
-        app.get("/home", (req, res, ctx) -> {
-            res.writeResponse("data : testing docker");
-        });
+        app.use(new StaticResourceServer("/static"));
 
-        app.get("/login", (req, res, ctx) -> {
-            try {
-                String body = req.body();
+        app.use(AuthenticationController.getAuthRouter());
 
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        app.use("/api/notes", NotesRestController.getNotesRestApiRouter());
 
-        });
-
-        app.use(new Auth());
-
-        app.use("/restricted", (req, res, ctx) -> {
-            res.writeResponse("On restricted area");
-        });
+        app.use("/notes", NotesController.getNotesRouter());
 
         app.listenOnPort(5757);
         app.startServer();
