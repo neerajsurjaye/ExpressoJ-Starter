@@ -2,12 +2,11 @@ package com.spec.db;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.spec.models.Note;
 
-import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -23,13 +22,14 @@ public class NotesDB {
     private static ConcurrentHashMap<String, List<Note>> db = new ConcurrentHashMap<>();
 
     public static List<Note> getData(String key) {
-        return db.get(key);
+        List<Note> resp = db.get(key);
+        return resp == null ? new ArrayList<>() : resp;
     }
 
     public static void putData(String key, Note note) {
 
         db.computeIfAbsent(key, k -> {
-            return new ArrayList<>();
+            return new CopyOnWriteArrayList<>();
         });
         db.get(key).add(note);
 

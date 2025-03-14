@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import com.spec.controllers.AuthenticationController;
 import com.spec.controllers.NotesRestController;
-import com.spec.controllers.NotesController;
 import com.spec.web.expresso.Expresso;
 import com.spec.web.expresso.middleware.standard.StaticResourceServer;
 
@@ -20,8 +19,6 @@ public class Application {
         app.use(AuthenticationController.getAuthRouter());
 
         app.use("/api/notes", NotesRestController.getNotesRestApiRouter());
-
-        app.use("/notes", NotesController.getNotesRouter());
 
         app.listenOnPort(5757);
         app.startServer();
