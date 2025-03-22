@@ -20,7 +20,8 @@ public class NotesRestController {
             JsonObject jsonResponse = new JsonObject();
 
             try {
-                String userNotesJsonString = NotesService.getNotesAsJsonString(req.body());
+                String userNotesJsonString = NotesService
+                        .getNotesAsJsonString(ctx.getState(NotesAppConstants.USER_NAME));
 
                 res.setContentTypeHeader(NotesAppConstants.MIME_JSON);
                 jsonResponse.addProperty("status", "success");
@@ -28,7 +29,7 @@ public class NotesRestController {
                 res.setStatusCode(200).setContentTypeHeader(NotesAppConstants.MIME_JSON)
                         .writeResponse(jsonResponse.toString());
 
-            } catch (IOException e) {
+            } catch (Exception e) {
                 log.error("Got exception : {}", e);
                 jsonResponse.addProperty("status", "fail");
                 res.setStatusCode(500).setContentTypeHeader(NotesAppConstants.MIME_JSON)
@@ -42,7 +43,7 @@ public class NotesRestController {
             JsonObject jsonResponse = new JsonObject();
 
             try {
-                String noteAdded = NotesService.addNote(req.body());
+                String noteAdded = NotesService.addNote(req.body(), ctx.getState(NotesAppConstants.USER_NAME));
                 jsonResponse.addProperty("status", "success");
                 jsonResponse.add("note", JsonParser.parseString(noteAdded));
                 res.setStatusCode(200).setContentTypeHeader(NotesAppConstants.MIME_JSON)
@@ -62,7 +63,7 @@ public class NotesRestController {
             JsonObject jsonResponse = new JsonObject();
 
             try {
-                String noteUpdated = NotesService.updateNote(req.body());
+                String noteUpdated = NotesService.updateNote(req.body(), ctx.getState(NotesAppConstants.USER_NAME));
 
                 jsonResponse.addProperty("status", "success");
                 jsonResponse.add("note", JsonParser.parseString(noteUpdated));
@@ -82,7 +83,7 @@ public class NotesRestController {
             JsonObject jsonResponse = new JsonObject();
 
             try {
-                String noteDeleted = NotesService.deleteNote(req.body());
+                String noteDeleted = NotesService.deleteNote(req.body(), ctx.getState(NotesAppConstants.USER_NAME));
 
                 jsonResponse.addProperty("status", "success");
                 jsonResponse.add("note", JsonParser.parseString(noteDeleted));

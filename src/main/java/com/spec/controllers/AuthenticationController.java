@@ -20,7 +20,7 @@ public class AuthenticationController {
 
         PathRouter router = new PathRouter();
 
-        router.get("/login", (req, res, ctx) -> {
+        router.post("/login", (req, res, ctx) -> {
             JsonObject jsonResponse = new JsonObject();
 
             try {

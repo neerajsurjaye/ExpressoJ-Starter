@@ -53,7 +53,7 @@ public class AuthenticationMiddleware implements Middleware {
 
             return;
         }
-
+        ctx.putState(NotesAppConstants.USER_NAME, userName);
         ctx.executeNextMiddleware();
 
     }

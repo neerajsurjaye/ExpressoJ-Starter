@@ -17,40 +17,34 @@ public class NotesService {
         // pass
     }
 
-    public static String getNotesAsJsonString(String body) {
+    public static String getNotesAsJsonString(String username) {
 
-        JsonElement jsonElement = JsonParser.parseString(body);
-        JsonObject jsonObject = jsonElement.getAsJsonObject();
-        String userName = jsonObject.get("username").getAsString();
-
-        log.error(userName);
+        log.error(username);
         log.error(NotesDB.getDbAsString());
-        List<Note> userNotes = NotesDB.getData(userName);
+        List<Note> userNotes = NotesDB.getData(username);
 
         return new Gson().toJson(userNotes);
 
     }
 
-    public static String addNote(String body) {
+    public static String addNote(String body, String username) {
 
         JsonElement jsonElement = JsonParser.parseString(body);
         JsonObject jsonObject = jsonElement.getAsJsonObject();
         JsonElement notejsonElement = jsonObject.get("note");
-        String userName = jsonObject.get("username").getAsString();
 
         Note note = new Gson().fromJson(notejsonElement, Note.class);
 
-        NotesDB.putData(userName, note);
+        NotesDB.putData(username, note);
 
         return notejsonElement.toString();
 
     }
 
-    public static String updateNote(String body) {
+    public static String updateNote(String body, String username) {
         JsonElement jsonElement = JsonParser.parseString(body);
         JsonObject jsonObject = jsonElement.getAsJsonObject();
 
-        String username = jsonObject.get("username").getAsString();
         String uuid = jsonObject.get("uuid").getAsString();
 
         Note noteToUpdate = null;
@@ -77,10 +71,9 @@ public class NotesService {
 
     }
 
-    public static String deleteNote(String body) {
+    public static String deleteNote(String body, String username) {
         JsonObject jsonObject = JsonParser.parseString(body).getAsJsonObject();
 
-        String username = jsonObject.get("username").getAsString();
         String uuid = jsonObject.get("uuid").getAsString();
 
         List<Note> userNotes = NotesDB.getData(username);

@@ -7,5 +7,6 @@ public class NotesAppConstants {
     }
 
     public static final String MIME_JSON = "application/json";
+    public static final String USER_NAME = "username";
 
 }

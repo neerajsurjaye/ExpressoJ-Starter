@@ -1,5 +1,7 @@
 package com.spec.services;
 
+import java.util.UUID;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.google.gson.JsonObject;
@@ -42,7 +44,10 @@ public class AuthenticationService {
 
     public static String generateJWTforUser(String username) {
         Algorithm signingAlgorithm = Algorithm.HMAC256("super-secret-key");
-        return JWT.create().withClaim("username", username).sign(signingAlgorithm);
+        return JWT.create()
+                .withClaim("username", username)
+                .withJWTId(UUID.randomUUID().toString())
+                .sign(signingAlgorithm);
     }
 
 }
