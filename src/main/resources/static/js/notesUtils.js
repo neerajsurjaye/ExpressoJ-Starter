@@ -84,7 +84,7 @@ let handleLoginSubmitBtn = () => {
     });
 };
 
-let showAllNotesForCurrUser = async () => {
+let getAllNotesForCurrentUser = async () => {
     let jwt = localStorage.getItem(constants.AUTH_KEY_LOCALSTORAGE);
     let notesCont = document.getElementById("notes-cont");
     if (!notesCont) return;
@@ -96,7 +96,60 @@ let showAllNotesForCurrUser = async () => {
         jwt
     );
 
-    console.log(JSON.stringify(json));
+    if (json.status == "success") {
+        return json.notes;
+    }
+
+    return [];
+};
+
+let addNote = async () => {
+    let notesTitle = document.getElementById("notes-form-title").value;
+    let notesDesc = document.getElementById("notes-form-desc").value;
+
+    let body = {
+        note: {
+            title: notesTitle,
+            body: notesDesc,
+        },
+    };
+
+    const authToken = localStorage.getItem(constants.AUTH_KEY_LOCALSTORAGE);
+
+    let json = await restHelper.httpAuthReqWithJsonResp(
+        "/api/notes",
+        "POST",
+        body,
+        authToken
+    );
+
+    console.log(`Added note : ${JSON.stringify(json)}`);
+};
+
+let handleSubmitNotesBtn = () => {
+    let submitNotesBtn = document.getElementById("notes-submit-btn");
+    if (!submitNotesBtn) return;
+    submitNotesBtn.addEventListener("click", async () => {
+        await addNote();
+        await generateNotesList();
+    });
+};
+
+let generateNotesList = async () => {
+    let notesContainer = document.getElementById("notes-cont");
+
+    notesContainer.innerHTML = "";
+
+    let notesList = await getAllNotesForCurrentUser();
+
+    for (let key in notesList) {
+        let currNote = notesList[key];
+        let noteDomElement = domCreator.generateNote(
+            currNote,
+            generateNotesList
+        );
+        notesContainer.appendChild(noteDomElement);
+    }
 };
 
 let notesUtils = () => {
@@ -105,7 +158,9 @@ let notesUtils = () => {
     handleSignUpSubmitBtn();
     handleSignOut();
     handleLoginSubmitBtn();
-    showAllNotesForCurrUser();
+    getAllNotesForCurrentUser();
+    handleSubmitNotesBtn();
+    generateNotesList();
 };
 
 notesUtils();

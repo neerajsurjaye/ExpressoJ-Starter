@@ -1,6 +1,7 @@
 package com.spec.middleware;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.exceptions.JWTDecodeException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.google.gson.JsonObject;
 import com.spec.constants.NotesAppConstants;
@@ -41,7 +42,18 @@ public class AuthenticationMiddleware implements Middleware {
         }
 
         String jwtToken = tokenSplit[1];
-        DecodedJWT decodedJWT = new JWT().decodeJwt(jwtToken);
+        DecodedJWT decodedJWT;
+
+        try {
+            decodedJWT = new JWT().decodeJwt(jwtToken);
+        } catch (JWTDecodeException exception) {
+            jsonResponse.addProperty("status", "fail");
+            jsonResponse.addProperty("message", "Error parsing JWT");
+            res.setStatusCode(500).setContentTypeHeader(NotesAppConstants.MIME_JSON)
+                    .writeResponse(jsonResponse.toString());
+            return;
+        }
+
         String userName = decodedJWT.getClaim("username").asString();
 
         if (!UsersDB.isUserPresent(userName)) {
