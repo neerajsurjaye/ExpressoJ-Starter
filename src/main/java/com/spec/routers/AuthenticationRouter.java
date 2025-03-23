@@ -32,6 +32,7 @@ public class AuthenticationRouter {
                 if (jwt != null) {
                     jsonResponse.addProperty("status", "success");
                     jsonResponse.add("jwt", JsonParser.parseString(jwt));
+                    jsonResponse.addProperty(NotesAppConstants.RESP_MESSAGE, "Login successfull");
                     res.setStatusCode(200).setContentTypeHeader(NotesAppConstants.MIME_JSON)
                             .writeResponse(jsonResponse.toString());
                 } else {
@@ -60,6 +61,7 @@ public class AuthenticationRouter {
                 if (jwt != null) {
                     jsonResponse.addProperty("status", "success");
                     jsonResponse.add("jwt", JsonParser.parseString(jwt));
+                    jsonResponse.addProperty(NotesAppConstants.RESP_MESSAGE, "Signup successfull");
                     res.setStatusCode(200).setContentTypeHeader(NotesAppConstants.MIME_JSON)
                             .writeResponse(jsonResponse.toString());
                 } else {

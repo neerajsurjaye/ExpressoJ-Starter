@@ -28,9 +28,12 @@ let handleSignUp = async () => {
         domCreator.showErrorModal(json.message);
     }
 
-    // if (json.status == "success") {
-    //     domCreator.showSuccessModal(json.message);
-    // }
+    if (json.status == "success") {
+        domCreator.showSuccessModal(json.message);
+        setTimeout(() => {
+            window.location = "/";
+        }, 1000);
+    }
 
     let jwtToken = json?.jwt;
 
@@ -82,9 +85,12 @@ let handleLogin = async () => {
         domCreator.showErrorModal(json.message);
     }
 
-    // if (json.status == "success") {
-    //     domCreator.showSuccessModal(json.message);
-    // }
+    if (json.status == "success") {
+        domCreator.showSuccessModal(json.message);
+        setTimeout(() => {
+            window.location = "/";
+        }, 1000);
+    }
 
     let jwtToken = json?.jwt;
 

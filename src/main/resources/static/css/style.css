@@ -5,8 +5,8 @@
     --text-grey: #444;
     --red: #f44;
     --light-red: #faa;
-    --light-green: #afa;
-    --green: #4f4;
+    --light-green: #cfc;
+    --green: #1e1;
 }
 
 * {
@@ -169,4 +169,19 @@ body {
     background-color: var(--light-green);
     color: var(--green);
     font-weight: 600;
+}
+
+/* -------- FOOTER -------- */
+.footer {
+    position: fixed;
+    bottom: 0px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.footer > a {
+    text-decoration: none;
+    color: black;
 }
