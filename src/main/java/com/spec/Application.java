@@ -17,9 +17,10 @@ public class Application {
     public static void main(String[] args) {
         Expresso app = Expresso.init();
 
-        // app.use(new StaticResourceServer("/static"));
+        app.use(new StaticResourceServer("/static"));
 
-        app.use(new StaticFileServer("D:\\Coding\\Java\\ExpressoJ-Starter\\src\\main\\resources\\static"));
+        // app.use(new
+        // StaticFileServer("D:\\Coding\\Java\\ExpressoJ-Starter\\src\\main\\resources\\static"));
 
         app.use("/auth", AuthenticationRouter.getAuthRouter());
 
