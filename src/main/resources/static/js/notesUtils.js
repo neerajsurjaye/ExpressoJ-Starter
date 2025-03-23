@@ -24,6 +24,14 @@ let handleSignUp = async () => {
         "POST"
     );
 
+    if (json.status == "fail") {
+        domCreator.showErrorModal(json.message);
+    }
+
+    // if (json.status == "success") {
+    //     domCreator.showSuccessModal(json.message);
+    // }
+
     let jwtToken = json?.jwt;
 
     setJwt(jwtToken);
@@ -40,7 +48,6 @@ let handleSignUpSubmitBtn = () => {
 let handleSignOut = () => {
     let signOutElement = document.getElementById("sign-out-btn");
 
-    console.log(signOutElement);
     if (!signOutElement) return;
 
     signOutElement.addEventListener("click", () => {
@@ -70,6 +77,14 @@ let handleLogin = async () => {
         { username, password },
         "POST"
     );
+
+    if (json.status == "fail") {
+        domCreator.showErrorModal(json.message);
+    }
+
+    // if (json.status == "success") {
+    //     domCreator.showSuccessModal(json.message);
+    // }
 
     let jwtToken = json?.jwt;
 
@@ -138,15 +153,14 @@ let handleSubmitNotesBtn = () => {
 let generateNotesList = async () => {
     let notesContainer = document.getElementById("notes-cont");
 
+    if (notesContainer == null) return;
+
     notesContainer.innerHTML = "";
 
     let notesResp = await getAllNotesForCurrentUser();
 
     if (notesResp.status == "fail") {
-        let errorMessageElement = domCreator.generateErrorMessageElement(
-            notesResp.message
-        );
-        notesContainer.appendChild(errorMessageElement);
+        domCreator.showErrorModal(notesResp.message);
         return;
     }
 

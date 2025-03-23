@@ -3,6 +3,10 @@
     --grey: #bbb;
     --black: #222;
     --text-grey: #444;
+    --red: #f44;
+    --light-red: #faa;
+    --light-green: #afa;
+    --green: #4f4;
 }
 
 * {
@@ -144,4 +148,25 @@ body {
     color: var(--text-grey);
     font-size: 0.8rem;
     padding-left: 10px;
+}
+
+/* -------- MODAL -------- */
+.modal-status-error {
+    margin-top: 16px;
+    border: 4px solid var(--red);
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--light-red);
+    color: var(--red);
+    font-weight: 600;
+}
+
+.modal-status-success {
+    margin-top: 16px;
+    border: 4px solid var(--green);
+    padding: 16px;
+    border-radius: 8px;
+    background-color: var(--light-green);
+    color: var(--green);
+    font-weight: 600;
 }

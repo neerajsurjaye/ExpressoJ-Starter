@@ -68,10 +68,26 @@ let generateErrorMessageElement = (msg) => {
     return errorMsgCont;
 };
 
+let showErrorModal = (msg) => {
+    let modalCont = document.getElementById("modal-cont");
+
+    modalCont.classList.add("modal-status-error");
+    modalCont.textContent = msg;
+};
+
+let showSuccessModal = (msg) => {
+    let modalCont = document.getElementById("modal-cont");
+
+    modalCont.classList.add("modal-status-success");
+    modalCont.textContent = msg;
+};
+
 const domCreator = {
     genereateNavBar,
     generateNote,
     generateErrorMessageElement,
+    showErrorModal,
+    showSuccessModal,
 };
 
 export default domCreator;
