@@ -2,6 +2,9 @@ package com.spec.db;
 
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * The class acts as simple in memory keyvalue database.
+ */
 public class UsersDB {
 
     private static ConcurrentHashMap<String, String> userDb = new ConcurrentHashMap<>();

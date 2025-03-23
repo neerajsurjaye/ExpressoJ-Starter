@@ -1,0 +1,147 @@
+:root {
+    --base-color: #2f6690;
+    --grey: #bbb;
+    --black: #222;
+    --text-grey: #444;
+}
+
+* {
+    font-family: Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+/*--------- UTILS ------------*/
+.to-right {
+    margin-left: auto;
+}
+
+.btn {
+    width: 100%;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ------- NAV-BAR --------- */
+#nav-bar {
+    width: 100%;
+    display: flex;
+    padding: 16px;
+    background-color: var(--base-color);
+    align-items: center;
+}
+
+.nav-content {
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav-btn {
+    margin-right: 8px;
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.nav-title {
+    font-size: 1.25rem;
+}
+
+/* ------- MAIN-CONT --------- */
+.main-cont {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-cont > h2 {
+    font-size: 4rem;
+    margin: 4px;
+    color: var(--black);
+}
+
+.main-cont > i {
+    color: var(--grey);
+}
+
+.main-cont > a {
+    border: 2px solid var(--black);
+    border-radius: 8px;
+    padding: 8px;
+    margin: 16px;
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ------- USER-FORM --------- */
+.user-form {
+    padding: 16px;
+    border-radius: 4px;
+    border: 1px solid black;
+}
+
+.user-form > div {
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    margin-bottom: 4px;
+}
+
+/* ------- NOTES-PAGE --------- */
+.main-notes-cont {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#add-notes-form {
+    min-width: 50vw;
+    max-width: 95vw;
+}
+
+#notes-cont {
+    min-width: 50vw;
+    max-width: 95vw;
+
+    padding: 4px;
+    padding-top: 12px;
+}
+
+.note-elem {
+    border: 1px solid var(--grey);
+    border-radius: 4px;
+    padding: 8px;
+    margin-bottom: 8px;
+    display: flex;
+}
+
+.note-title {
+    margin: 4px;
+}
+
+.notes-info-cont {
+    width: 100%;
+}
+
+.note-remove-btn {
+    height: fit-content;
+    cursor: pointer;
+}
+
+.note-desc {
+    color: var(--text-grey);
+    font-size: 0.8rem;
+    padding-left: 10px;
+}

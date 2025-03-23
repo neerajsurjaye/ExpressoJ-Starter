@@ -3,8 +3,6 @@ package com.spec.db;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.spec.models.Note;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,9 +26,7 @@ public class NotesDB {
 
     public static void putData(String key, Note note) {
 
-        db.computeIfAbsent(key, k -> {
-            return new CopyOnWriteArrayList<>();
-        });
+        db.computeIfAbsent(key, k -> new ArrayList<>());
         db.get(key).add(note);
 
     }

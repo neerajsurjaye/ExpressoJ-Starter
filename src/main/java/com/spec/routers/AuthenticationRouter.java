@@ -1,4 +1,4 @@
-package com.spec.controllers;
+package com.spec.routers;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class AuthenticationController {
+public class AuthenticationRouter {
 
     public static PathRouter getAuthRouter() {
 

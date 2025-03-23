@@ -97,10 +97,10 @@ let getAllNotesForCurrentUser = async () => {
     );
 
     if (json.status == "success") {
-        return json.notes;
+        return json;
     }
 
-    return [];
+    return json;
 };
 
 let addNote = async () => {
@@ -140,7 +140,17 @@ let generateNotesList = async () => {
 
     notesContainer.innerHTML = "";
 
-    let notesList = await getAllNotesForCurrentUser();
+    let notesResp = await getAllNotesForCurrentUser();
+
+    if (notesResp.status == "fail") {
+        let errorMessageElement = domCreator.generateErrorMessageElement(
+            notesResp.message
+        );
+        notesContainer.appendChild(errorMessageElement);
+        return;
+    }
+
+    let notesList = notesResp.notes;
 
     for (let key in notesList) {
         let currNote = notesList[key];

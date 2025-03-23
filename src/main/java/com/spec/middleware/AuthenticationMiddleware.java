@@ -25,8 +25,8 @@ public class AuthenticationMiddleware implements Middleware {
 
         if (authHeader == null) {
             // Doesnt calls next middlewares
-            jsonResponse.addProperty("status", "fail");
-            jsonResponse.addProperty("message", "Authorization required to access following API");
+            jsonResponse.addProperty(NotesAppConstants.RESP_STATUS, "fail");
+            jsonResponse.addProperty(NotesAppConstants.RESP_MESSAGE, "Authorization required to access following API");
             res.setStatusCode(401).setContentTypeHeader(NotesAppConstants.MIME_JSON)
                     .writeResponse(jsonResponse.toString());
             return;
@@ -34,8 +34,8 @@ public class AuthenticationMiddleware implements Middleware {
         String[] tokenSplit = authHeader.split(" ");
 
         if (tokenSplit.length < 2) {
-            jsonResponse.addProperty("status", "fail");
-            jsonResponse.addProperty("message", "Bad auth header");
+            jsonResponse.addProperty(NotesAppConstants.RESP_STATUS, "fail");
+            jsonResponse.addProperty(NotesAppConstants.RESP_MESSAGE, "Bad auth header");
             res.setStatusCode(401).setContentTypeHeader(NotesAppConstants.MIME_JSON)
                     .writeResponse(jsonResponse.toString());
             return;
@@ -47,8 +47,8 @@ public class AuthenticationMiddleware implements Middleware {
         try {
             decodedJWT = new JWT().decodeJwt(jwtToken);
         } catch (JWTDecodeException exception) {
-            jsonResponse.addProperty("status", "fail");
-            jsonResponse.addProperty("message", "Error parsing JWT");
+            jsonResponse.addProperty(NotesAppConstants.RESP_STATUS, "fail");
+            jsonResponse.addProperty(NotesAppConstants.RESP_MESSAGE, "Error parsing JWT");
             res.setStatusCode(500).setContentTypeHeader(NotesAppConstants.MIME_JSON)
                     .writeResponse(jsonResponse.toString());
             return;
@@ -58,9 +58,9 @@ public class AuthenticationMiddleware implements Middleware {
 
         if (!UsersDB.isUserPresent(userName)) {
 
-            jsonResponse.addProperty("status", "fail");
-            jsonResponse.addProperty("message", "user doesn't exist");
-            res.setStatusCode(500).setContentTypeHeader(NotesAppConstants.MIME_JSON)
+            jsonResponse.addProperty(NotesAppConstants.RESP_STATUS, "fail");
+            jsonResponse.addProperty(NotesAppConstants.RESP_MESSAGE, "user doesn't exist");
+            res.setStatusCode(401).setContentTypeHeader(NotesAppConstants.MIME_JSON)
                     .writeResponse(jsonResponse.toString());
 
             return;
