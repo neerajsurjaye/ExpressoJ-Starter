@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <nav id="nav-bar"></nav>
+
+        <main class="main-notes-cont">
+            <h1>Notes</h1>
+
+            <form id="add-notes-form" class="user-form">
+                <div>
+                    <span>Title : </span>
+                    <input id="notes-form-title" type="text" />
+                </div>
+                <div>
+                    <span>Description : </span>
+                    <input id="notes-form-desc" type="text" />
+                </div>
+
+                <input
+                    id="notes-submit-btn"
+                    type="button"
+                    value="Add note"
+                    class="btn"
+                />
+            </form>
+
+            <div id="modal-cont"></div>
+
+            <div id="notes-cont"></div>
+        </main>
+        <div class="footer">
+            <a href="https://github.com/neerajsurjaye" target="_blank"
+                >© Neeraj Surjaye</a
+            >
+        </div>
+    </body>
+    <script type="module" src="/js/notesUtils.js"></script>
+</html>
