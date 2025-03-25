@@ -1,13 +1,21 @@
 # ExpressoJ-Starter
 
-> The following serves as a demo project for ExpressJ.
+<b>The project serves as a demo for ExpressoJ.</b>
 
-## To get started
+## Run With Docker
 
-> 1. Build the ExpressoJ proejct using **mvn clean install**. After it should be avilable in local maven repo.
-> 2. Build the ExpreooJ-Starter using **mvn clean install**.
-> 3. The built jar can be found in the **target** directory.
-> 4. To run the jar execute the following command **java -jar _expressoj-demo-1.0-SNAPSHOT.jar_**
->     > Make sure no other application is running on the port on which Expresso will run.
-> 5. The application will be accissable from **localhost:5757** by default with the following paths
->     > _localhost:5757/home_ and _localhost:5757/about_
+<i> If you want to get started quickly: </i>
+
+1. Ensure that Docker is installed on your system.
+2. Clone the repository on your local system.
+3. Execute <code> docker build -t expresso-demo:1.0.0 . </code>.
+4. Now run your docker image using <code> docker run -p 5757:5757 expresso-demo:1.0.0</code>.
+5. The webpage should be available at [localhost:5757](http://localhost:5757).
+
+## Manually Set Up Environment On Your Local
+
+1. Clone the Maven repo of ExpressoJ on your local. <i>This will help in creating ExpressoJ artifact on your local Maven repository.</i>
+2. Navigate into the ExpressoJ project directory and run <code>mvn install</code>. <i>Ensure Maven is installed on your system</i>.
+3. Go to <b>ExpressoJ-Starter</b> project directory and execute <code>mvn install</code> to build the ExpressoJ-Starter project.
+4. The jar file will be available in the target folder. To run the application, execute the following command from root of the project: <code>java -jar target/expressoj-demo-1.0.0.jar</code>.
+5. The webpage should be available at [localhost:5757](http://localhost:5757).
