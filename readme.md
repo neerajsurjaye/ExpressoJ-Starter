@@ -19,3 +19,9 @@
 -   Go to <b>ExpressoJ-Starter</b> project directory and execute <code>mvn install</code> to build the ExpressoJ-Starter project.
 -   The jar file will be available in the target folder. To run the application, execute the following command from root of the project: <code>java -jar target/expressoj-demo-1.0.0.jar</code>.
 -   The webpage should be available at [localhost:5757](http://localhost:5757).
+
+<picture>
+     <source media="(prefers-color-scheme: dark)" srcset="./logo/logo_black.png">
+  <source media="(prefers-color-scheme: light)" srcset="./logo/logo_light.png">
+  <img alt="Logo" src="./logo/logo_black.png">
+</picture>
