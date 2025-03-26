@@ -21,7 +21,7 @@
 -   The webpage should be available at [localhost:5757](http://localhost:5757).
 
 <picture>
-     <source media="(prefers-color-scheme: dark)" srcset="./logo/logo_black.png">
-  <source media="(prefers-color-scheme: light)" srcset="./logo/logo_light.png">
-  <img alt="Logo" src="./logo/logo_black.png">
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/logo/logo_black.png">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/logo/logo_light.png">
+    <img alt="Logo" src="./assets/logo/logo_black.png">
 </picture>
