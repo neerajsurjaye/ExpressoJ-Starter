@@ -19,10 +19,6 @@
 
             <ul class="flex header-nav-buttons">
                 <li>
-                    <a class="btn" href="#getexpresso">Use Expresso</a>
-                </li>
-
-                <li>
                     <a class="btn" href="./apidocs/">Java doc</a>
                 </li>
             </ul>
@@ -36,6 +32,9 @@
                     <span class="expresso-logo-white-0">Expresso</span
                     ><span class="expresso-logo-white-1">J</span>
                 </h1>
+
+                <span class="hero-info">A Minimal Java Web Framework</span>
+
                 <div class="w-100 flex-justify-center">
                     <a class="btn mr-8 pe-auto" href="#getstarted">
                         Get Started
@@ -51,63 +50,64 @@
                             alt=""
                         />
 
-                        <span>&nbsp;Contibute on github</span>
+                        <span>&nbsp;Contribute on github</span>
                     </a>
                 </div>
             </div>
         </main>
 
         <!-- demo code section -->
-        <section id="getstarted" class="section vh-1 border-bt-black">
+        <section class="section vh-1 border-bt-black">
             <h2 class="section-title">SHOW ME THE CODE</h2>
             <div class="section-body">
                 <p>
                     Here's a sample application that uses the
-                    <code>.use()</code> method to intercept requests and handle
-                    <code>GET</code> request on <code>/hello</code> endpoint.
+                    <code>.use()</code> method to intercept all requests and
+                    handle <code>GET</code> request on
+                    <code>/hello</code> endpoint.
                 </p>
                 <div class="code">
                     <pre><code class="language-java">public static void main(String[] args) {
-    /* Initialize Expresso */
+    /* Initialize Expresso instance */
     Expresso expresso = Expresso.init();
 
     /*
-    * The .use() executes for all incoming requests, regardless of the HTTP method.
-    * A specific path can also be specified if needed.
-    */
-    expresso.use((req, res, next) -> {
-        res.writeResponse("Request intercepted");
-        next.next();
+        * The .use() executes middleware method for all incoming requests, regardless
+        * of the HTTP method.
+        * A specific path can also be specified if needed.
+        */
+    expresso.use((req, res, ctx) -> {
+        log.info("Request Intercepted at : {}", req.getRequestPath());
+        ctx.executeNextMiddleware();
     });
 
-    /* Supports [get, post, put, delete] http methods */
-    expresso.get("/hello", (req, res, next) -> {
+    /* Support for [get, post, put, delete] http methods */
+    expresso.get("/hello", (req, res, ctx) -> {
         res.writeResponse("Hello world");
-        next.next();
     });
-   
+
     /* Set a port to listen on */
-    expresso.listen(5757);
+    expresso.listenOnPort(5757);
 
     /* Start the application */
-    expresso.start();
-}</code></pre>
+    expresso.startServer();
+}
+</code></pre>
                 </div>
             </div>
         </section>
 
         <!-- Use expresso section -->
-        <section id="getexpresso" class="section vh-1 border-bt-black">
-            <h2 class="section-title">USE EXPRESSOJ</h2>
+        <section id="getstarted" class="section vh-1 border-bt-black">
+            <h2 class="section-title">GET STARTED</h2>
             <div class="section-body">
                 <div id="get-expresso-doc">
                     <h3>
-                        Follow the steps below to set up ExpressoJ on your local
-                        System.
+                        Follow the steps below to use Expresso in your project.
                     </h3>
 
                     <h4>
-                        1. Clone ExpressoJ GitHub repo to your local system.
+                        1. Clone ExpressoJ GitHub repository to your system.
                     </h4>
                     <p>
                         GitHub:
@@ -120,40 +120,40 @@
                     <pre><code class="language-bash">$ git clone https://github.com/neerajsurjaye/ExpressoJ.git</code></pre>
                 </div>
 
-                <h4>
-                    2. Navigate into the project and change repository to main.
-                </h4>
+                <h4>2. Navigate into the project and switch to main branch.</h4>
                 <pre><code class="language-bash">$ cd ~/ExpressoJ
 $ git checkout main</code></pre>
 
                 <h4>3. Build the project.</h4>
-                <pre><code class="language-shell"># Build project and add it into local maven repository
+                <pre><code class="language-shell"># Builds the project and adds it into your local maven repository
 $ mvn clean install</code></pre>
 
-                <h4>4. Now add ExpressoJ as dependency in your own project.</h4>
+                <h4>
+                    4. Now add ExpressoJ as a dependency in your own project.
+                </h4>
                 <pre><code class="language-xml">&lt;dependencies&gt;
     ...
     &lt;dependency&gt;
         &lt;groupId&gt;com.spec.web&lt;/groupId&gt;
         &lt;artifactId&gt;expressoj&lt;/artifactId&gt;
-        &lt;version&gt;1.0.0-beta&lt;/version&gt;
+        &lt;version&gt;1.0.0&lt;/version&gt;
     &lt;/dependency&gt;
     ...
 &lt;/dependencies&gt;</code></pre>
 
                 <h4>
-                    5. In your project update the following properties in
-                    pom.xml.
+                    5. (Optional)If building a standalone UBER/FAT jar. In your
+                    project update the following properties in pom.xml.
                 </h4>
                 <ol>
-                    <li>Change build type to jar.</li>
+                    <li>Ensure build type is jar.</li>
                     <li>
                         Use <strong>maven-shade-plugin</strong> to make it a
-                        uber (fat) jar.
+                        uber(fat) jar.
                     </li>
                     <li>
-                        (Optional) Use <strong>maven-jar-plugin</strong> to add
-                        a manifest to main class.
+                        Use <strong>maven-jar-plugin</strong> to add a manifest
+                        to main class.
                     </li>
                 </ol>
                 <pre><code class="language-xml">&lt;!-- Jar packaging required --&gt;
@@ -198,7 +198,7 @@ $ mvn clean install</code></pre>
     ...
 &lt;/build&gt;</code></pre>
 
-                <h4>6. Write and build the project with maven and run it!!!</h4>
+                <h4>6. Write, build and run the project using Maven</h4>
                 <pre><code class="language-shell"># Build using maven
 $ mvn clean install
 
@@ -219,11 +219,11 @@ $ java -jar target/expresso-program.jar</code></pre>
                         href="https://github.com/neerajsurjaye/ExpressoJ"
                     >
                         <img
-                            class=""
+                            class="mr-8"
                             src="./assets/github-mark-white.png"
                             alt=""
                         />
-                        Contibute on github
+                        <span class="mr-8"> Contibute on github </span>
                     </a>
                 </div>
             </div>
