@@ -31,7 +31,7 @@
     /* border: 1px solid black; */
 
     font-size: 4rem;
-    color: #f8f8f8;
+    color: #fafafa;
     user-select: none;
     cursor: default;
     white-space: nowrap;
@@ -43,27 +43,27 @@
 }
 
 .scrl-text-highlight-green:hover {
-    color: #cfc;
+    color: #dfd;
 }
 
 .scrl-text-highlight-red:hover {
-    color: #fcc;
+    color: #fdd;
 }
 
 .scrl-text-highlight-blue:hover {
-    color: #ccf;
+    color: #ddf;
 }
 
 .scrl-text-highlight-pink:hover {
-    color: #fcf;
+    color: #fdf;
 }
 
 .scrl-text-highlight-teal:hover {
-    color: #cff;
+    color: #dff;
 }
 
 .scrl-text-highlight-yellow:hover {
-    color: #ffc;
+    color: #ffd;
 }
 
 @keyframes scroll {

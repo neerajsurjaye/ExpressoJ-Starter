@@ -1,3 +1,7 @@
+:root {
+    --grey: #555;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -30,15 +34,18 @@ h2 {
 
 .btn {
     padding: 4px;
-    border: 2px solid black;
+    border: 2px solid var(--grey);
     border-radius: 4px;
     text-transform: capitalize;
     background-color: white;
     font-weight: 600;
+    color: var(--grey);
+    text-decoration: none;
+    padding: 8px;
 }
 
 .btn:visited {
-    color: black;
+    color: var(--grey);
 }
 
 .no-link {
@@ -47,11 +54,11 @@ h2 {
 
 .no-link:visited {
     text-decoration: none;
-    color: black;
+    color: inherit;
 }
 
 .border-bt-black {
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid var(--grey);
 }
 
 .rem-1 {
@@ -93,6 +100,16 @@ h2 {
 
 .pe-auto {
     pointer-events: all;
+}
+
+.flex-al-center {
+    display: flex;
+    align-items: center;
+}
+
+.flex-justify-center {
+    display: flex;
+    justify-content: center;
 }
 
 /* element specific styles */
@@ -138,9 +155,8 @@ h2 {
 
 .hero-title {
     font-size: 8rem;
-    margin-top: 20vh;
-    margin-bottom: 10vh;
     pointer-events: none;
+    margin: 2rem 0 1rem 0;
 }
 
 .hero-background {
@@ -156,6 +172,19 @@ h2 {
     align-items: center;
     z-index: 2;
     pointer-events: none;
+    margin-top: 32px;
+    /* background-color: #ffffff22; */
+    /* backdrop-filter: blur(2px); */
+    padding: 32px;
+    border-radius: 16px;
+}
+
+.expresso-logo-white-0 {
+    color: var(--grey);
+}
+
+.expresso-logo-white-1 {
+    color: var(--grey);
 }
 
 pre {
