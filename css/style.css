@@ -247,7 +247,8 @@ pre {
 @media (max-width: 768px) {
     .btn {
         padding: 4px;
-        font-weight: 400;
+        font-weight: 600;
+        font-size: 0.8rem;
     }
     .header {
         display: flex;
