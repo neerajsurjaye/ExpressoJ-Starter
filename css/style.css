@@ -111,6 +111,10 @@ h2 {
     justify-content: center;
 }
 
+.to-right {
+    margin-left: auto;
+}
+
 /* element specific styles */
 
 /* header */
@@ -252,8 +256,8 @@ pre {
     }
     .header {
         display: flex;
-        align-items: center;
-        flex-direction: column;
+        /* align-items: center; */
+        /* flex-direction: column; */
         height: auto;
     }
 
