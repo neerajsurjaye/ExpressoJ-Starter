@@ -115,6 +115,10 @@ h2 {
     margin-left: auto;
 }
 
+.flex-columns {
+    flex-direction: column;
+}
+
 /* element specific styles */
 
 /* header */
@@ -250,9 +254,9 @@ pre {
 
 @media (max-width: 768px) {
     .btn {
-        padding: 4px;
+        padding: 8px;
         font-weight: 600;
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
     .header {
         display: flex;
@@ -263,6 +267,15 @@ pre {
 
     .hero-title {
         font-size: 4rem;
+    }
+
+    .hero-btn-cont {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-btn-cont > a {
+        width: fit-content;
     }
 
     .header-nav-buttons > li {
